@@ -1,0 +1,111 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Form</title>
+    <style>
+        div{
+            margin-bottom: 10px;
+        }
+        label{
+            font-size: 10pt;
+        }
+        button{
+            background-color: cyan;
+            width: 200px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h2>FORM PENDAFTARAN </h2>
+    <form action="submit">
+        <label for="nama">Nama Lengkap : </label>
+        <div>
+            <input type="text" name="nama" id="nama" placeholder="Nama Lengkap" required>
+        </div>
+        <label for="TTL">Tempat, Tanggal Lahir : </label>
+        <div>
+            <input type="text" name="tempatlahir" id="tempatlahir" required>,
+            <input type="date" name="lahir" id="lahir">
+        </div>
+        <label for="gender">Gender : </label>
+        <div>
+            <input type="radio" name="gender" id="gender" value="L">Laki-Laki
+            <input type="radio" name="gender" id="gender" value="P">Perempuan
+        </div>
+        <label for="nope">No Handphone :</label>
+        <div>
+            <input type="number" name="nope" id="nope" required>
+        </div>
+        <label for="email">Email :</label>
+        <div>
+            <input type="text" name="email" id="email" required>
+        </div>
+
+
+        <label for="provinsi">Provinsi : </label>
+        <div>
+            <select name="provinsi" id="provinsi" required>
+                <option value="" hidden selected>Pilih Salah Satu</option>
+                <option value="Jakarta_Selatan">Jakarta Selatan</option>
+                <option value="Jakarta_Pusat">Jakarta Pusat</option>
+            </select>
+        </div>
+        <label for="kota">Kota :</label>
+        <div>
+            <select  name="kota" id="kota" required>
+                <option value="" hidden selected>Pilih Salah Satu</option>
+                <optgroup label="Jakarta_Selatan">
+                    <option value="pasar_minggu">Pasar Minggu</option>
+                    <option value="kebayoran_baru">Kebayoran Baru</option>
+					<option value="kebayoran_lama">Kebayoran Lama</option>
+                </optgroup>
+                <optgroup label="Jakarta_Pusat">
+                    <option value="gambir">Gambir</option>
+                    <option value="kemayoran">Kemayoran</option>
+					<option value="menteng">Menteng</option>
+                </optgroup>
+            </select>
+        </div> 
+        <label for="kodepos">Kode Pos :</label>
+        <div>
+            <input type="number" name="kodepos" id="kodepos" maxlength="5">
+        </div>
+        <label for="detail_alamat">Alamat Lengkap :</label>
+        <div>
+            <textarea name="alamatlengkap" id="alamatlengkap" cols="33" rows="4"></textarea>
+        </div>
+        <label for="tipemember">Membership :</label>
+        <div>
+            <input type="radio" name="tipemember" id="tipemember" value="reguler">Normal
+            <input type="radio" name="tipemember" id="tipemember" value="premium">Pro
+            <input type="radio" name="tipemember" id="tipemember" value="vip">Pro Max
+        </div>
+        <label for="traev">Training Event :</label>
+        <div>
+            <select name="traev" id="traev">
+                <option value="" hidden selected>Pilih Training Mu</option>
+                <option value="cysec">Cyber Security</option>
+                <option value="bigdat">Big Data</option>
+                <option value="cloudcom">Cloud Computing</option>
+                <option value="soeng">Social Engginering</option>
+				<option value="program">Programming</option>
+            </select>
+        </div>
+        <label for="metodepembayaran">Metode Pembayaran :</label>
+        <div>
+            <input type="radio" name="metodepembayaran" id="metodepembayaran" value="tunai">Transfer Bank
+            <input type="radio" name="metodepembayaran" id="metodepembayaran" value="transfer">Kredit
+            <input type="radio" name="metodepembayaran" id="metodepembayaran" value="kredit">Bayar Tunai
+        </div>
+        <label for="catatan">Catatan :</label>
+        <div>
+            <textarea name="catatan" id="catatan" cols="33" rows="4"></textarea>
+        </div>
+        <button type="submit">DAFTAR</button>
+    </form>
+</body>
+</html>
