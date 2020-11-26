@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <tittle>Uang Indonesia Generator</tittle>
+        <link rel="stylesheet" type="text/css" href="kurs.css">
+        <script>
+            function convert(){
+                var from = document.getElementById("from").value;
+                var to = document.getElementById("to").value;
+                var xmlhttp = new XMLHttpRequest();
+                var url =  "https://api.fixer.io/latest" + from + "," + to;
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+                xmlhttp.onreadystatechange = function(){
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var result = xmlhttp.responseText;
+                        alert(result);
+                        var jsResult = JSON.parse(result);
+                        var oneUnit = jsResult.rates[to]/jsResult.rates[from];
+                        var amt = document.getElementById("formamount").value;
+                        document.getElementById("toamount").value = oneUnit*amt;
+                    }
+                }
+            }
+            </script>
+    </head>
+    <body onload="convert();">
+        <center>
+            <h1>Membuat format rupiah dengan javascript</h1>
+        </center>
+        <table id="wadaw"><tr>
+            <td>
+                <input type="text" id="formamount" value="1" onkeyup="convert();">
+            </td>
+            <td>
+                <select id="from" onChange="convert();">
+                    <option value="IDR">Indonesia Rupiah</option>
+                    <option value="USD">Dollar US</option>
+                    <option value="SGD">Dollar Singapore</option>
+                    <option value="MYR">Ringgit Malaysia</option>
+                    <option value="JPY">Yen Jepan</option>
+                    <option value="EUR">Euro</option>
+                    <option value="SAR">Riyal Arab Saudi</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" id="toamount" disabled>
+            </td>
+            <td>
+                <select id="to" onChange="convert();">
+                    <option value="IDR">Indonesia Rupiah</option>
+                    <option value="USD">Dollar US</option>
+                    <option value="SGD">Dollar Singapore</option>
+                    <option value="MYR">Ringgit Malaysia</option>
+                    <option value="JPY">Yen Jepan</option>
+                    <option value="EUR" selected>Euro</option>
+                    <option value="SAR">Riyal Arab Saudi</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+        <!-- <form name="converter">
+        <label for="provinsi">Provinsi : </label> ?sysmbols=
+        <div class="box">
+            <p>Masukkan jumlah nominal pada kotak dibawah</p>
+            <span>Nominal Rupiah :</span>
+            <input type="text" id="idr" onChange="euroConverter">
+        </div>
+        <div class="box">
+            <p>Masukkan jumlah nominal pada kotak dibawah</p>
+            <span>Nominal Rupiah :</span>
+            <input type="text" id="usd" onChange="dollarConverter">
+        </div>
+        <div class="box">
+            <p>Masukkan jumlah nominal pada kotak dibawah</p>
+            <span>Nominal Rupiah :</span>
+            <input type="text" id="pound" onChange="poundConverter">
+        </div>
+        <div class="box">
+            <p>Masukkan jumlah nominal pada kotak dibawah</p>
+            <span>Nominal Rupiah :</span>
+            <input type="text" id="yen" onChange="yenConverter">
+        </div>
+        <div class="box">
+        <input type="button" onclick="converall()" id="button" name="Convert" value="Convert">
+        </div>
+        </form>
+        <script type="text/javascript">
+        function converall(){
+            euroConverter();
+            dollarConverter();
+            poundConverter();
+            yenConverter();
+        }
+        function euroConverter(){
+        document.converter.usd.value = document.converter.idr.value * 0.00071
+        document.converter.pound.value = document.converter.euro.value * 0.717
+        document.converter.yen.value = document.converter.euro.value * 165.192
+        }
+        function dollarConverter(){
+        document.converter.idr.value = document.converter.usd.value * 0.680
+        document.converter.pound.value = document.converter.usd.value * 0.488
+        document.converter.yen.value = document.converter.usd.value * 112.36
+        }
+        function poundConverter(){
+        document.converter.usd.value = document.converter.pound.value * 2.049
+        document.converter.idr.value = document.converter.pound.value * 1.394
+        document.converter.yen.value = document.converter.pound.value * 230.27
+        }
+        function yenConverter(){
+        document.converter.usd.value = document.converter.yen.value * 0.0089
+        document.converter.pound.value = document.converter.yen.value * 0.00434
+        document.converter.idr.value = document.converter.yen.value * 0.00605
+        } -->
+        <!-- // var idr = document.getElementById('idr');
+        // var usd = document.getElementById('usd');
+        //     idr.addEventListener('keyup', function(e){
+        //         usd.value = this.value;
+        //         idr.value = formatIdr(this.value, 'Rp. ');
+        //     })
+
+        //     function konvertUsd(angka, prefix){
+
+        //     } 
+        //     function formatIdr(angka, prefix){
+        //         var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        //         split = number_string.split(','),
+        //         left = split[0].length % 3,
+        //         idr = split[0].substr(0, left),
+        //         idrr = split[0].substr(left).match(/\d{3}/gi);
+
+        //         if (idrr) {
+        //             separator = left ? '.' : '';
+        //             idr += separator + idrr.join('.');
+        //         }
+        //         idr = split[1] != undefined ? idr + ',' + split[1] : idr;
+        //         return prefix == undefined ? idr : (idr ? prefix + idr : '');
+        //     } -->
+        <!-- </script> -->
+
+                <div id="info">&#169; Create by katontsuyoi@gmail.com</div>
+    </body>
+</html>
